@@ -30,9 +30,9 @@ new Shapes.Cube({
 Describes a basic three-dimensional vector.
 ```js
 class Vec3 {
-    x: number
-    y: number
-    z: number
+    x: Number
+    y: Number
+    z: Number
 }
 
 new Vec3(0, 0, 0);
