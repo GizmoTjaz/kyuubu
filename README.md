@@ -1,5 +1,5 @@
 # Kyūbu
-3D cube renderer written in vanilla JS using the HTML canvas. All classes include an "acceptable" amount of JSDoc documentation.
+A 3D cube renderer written in vanilla JS using the HTML canvas. All classes include an "acceptable" amount of JSDoc documentation.
 
 ## Getting Started
 First, you must import the script into your HTML document:
@@ -8,9 +8,22 @@ First, you must import the script into your HTML document:
 ```
 Then you can use the following classes:
 ```js
-import { Renderer, Vec3, Shapes } from Kyuubu;
+const { Renderer, Vec3, Shapes } = Kyuubu;
 ```
+Before you start drawing, you must initialize a renderer object.
+```js
+new Renderer(document.getElementByTagName("canvas"));
+```
+After that, you can start drawing shapes.
+```js
+new Shapes.Cube({
+    size: new Vec3(50, 50, 50)
+});
+```
+**For examples, please take a look at the [examples](https://github.com/GizmoTjaz/kyuubu/examples) folder.**
+
 # Classes
+
 
 ## Vec3
 Describes a basic three-dimensional vector.
@@ -23,6 +36,7 @@ class Vec3 {
 
 new Vec3(0, 0, 0);
 ```
+
 
 # Shapes
 
@@ -53,20 +67,4 @@ new Primitive(constructorInstructions);
 The cube is the most basic shape.
 ```js
 new Cube(constructorInstructions);
-```
-
-## Examples
-### Normal cube
-```js
-new Cube({
-    size: new Vec3(50, 50, 50),
-    position: new Vec3(0, 0, 0),
-    orientation: new Vec3(0, 0, 0),
-    options: {
-        drawFaces: true,
-        drawOutlines: true,
-        drawVertices: false,
-        anchorObject: null
-    },
-});
 ```
