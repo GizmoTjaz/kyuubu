@@ -9,7 +9,7 @@ export default class Renderer {
 
     constructor (canvasElement) {
 
-        if (!canvasElement.getContext) throw Error("Provide a valid canvas element");
+        if (!(canvasElement instanceof HTMLCanvasElement)) throw Error("Provide a valid canvas element");
 
         this.canvas = canvasElement;
         this.ctx = canvasElement.getContext("2d");
