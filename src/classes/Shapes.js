@@ -1,6 +1,21 @@
+/**
+ * @typedef ConstructorInstructions
+ * @property {Vec3} size
+ * @property {Vec3} [position]
+ * @property {Vec3} [orientation]
+ * @property {ConstructorOptions} [options]
+ */
+
+/**
+ * @typedef ConstructorOptions
+ * @property {Boolean} drawVertices
+ * @property {Boolean} drawOutlines
+ * @property {Boolean} drawFaces
+ * @property {Primitive|Cube|void} anchorObject
+ */
+
 // Classes
-import { Vec3 } from "./classes.js";
-import Renderer from "./renderer.js";
+import Vec3 from "./Vec3";
 
 class Primitive {
 
@@ -15,17 +30,43 @@ class Primitive {
         anchorObject: null
     };
 
+    /**
+     * Constructs a Primitive object
+     * @param {ConstructorInstructions} constructorInstructions
+     */
     constructor ({ size, position = new Vec3(0, 0, 0), orientation = new Vec3(0, 0, 0), options = {} }) {
 
         this.size = size;
         this.position = position;
         this.orientation = orientation;
         Object.assign(this.options, options);
-        this.renderQueueIndex = Renderer.pushToQueue(this);
 
+        this.renderQueueIndex = KyuubuRenderer.pushToQueue(this);
     }
 
-    set setOrientation (newRot) {
+    /**
+     * Updates object size
+     * @params {Vec3} size
+     */
+    setSize (newSize) {
+        this.size = newSize;
+        KyuubuRenderer.updateObject(this);
+    }
+
+    /**
+     * Updates object position
+     * @params {Vec3} position
+     */
+    setPosition (newPos) {
+        this.position = newPos;
+        KyuubuRenderer.updateObject(this);
+    }
+
+    /**
+     * Updates object orientation
+     * @params {Vec3} orientation
+     */
+    setOrientation (newRot) {
 
         for (const axis in newRot) {
             if (newRot[axis] >= 360) {
@@ -34,11 +75,11 @@ class Primitive {
         }
 
         this.orientation = newRot;
-        Renderer.updateObject(this.renderQueueIndex, this);
+        KyuubuRenderer.updateObject(this);
     }
 
     destroy () {
-        Renderer.destroyObject(this.renderQueueIndex);
+        KyuubuRenderer.destroyObject(this);
     }
 
 }
@@ -49,9 +90,13 @@ class Cube extends Primitive {
     edges = [];
     faces = [];
 
+    /**
+     * Constructs a Cube object
+     * @param {ConstructorInstructions} constructorInstructions
+     */
     constructor (constructorInstructions) {
 
-        const { size, position = new Vec3(0, 0, 0), orientation = new Vec3(0, 0, 0), options = {} } = constructorInstructions;
+        const { size, position = new Vec3(0, 0, 0) } = constructorInstructions;
 
         super(constructorInstructions);
 
@@ -94,6 +139,7 @@ class Cube extends Primitive {
 
 }
 
-export {
+export default {
+    Primitive,
     Cube
 };

@@ -22,14 +22,21 @@
     </style>
     <body>
         <canvas id="canvas"></canvas>
-        <script href=""></script>
+        <script src="../dist/kyuubu.bundle.js"></script>
         <script>
 
             // Classes
             const { Renderer, Vec3, Shapes } = Kyuubu;
+
+            // Variables
+            const canvas = document.getElementById("canvas");
+
+            // Fit canvas to screen
+            canvas.width = document.documentElement.clientWidth;
+            canvas.height = document.documentElement.clientHeight;
             
             // Initialize Renderer
-            new Renderer(document.getElementsByTagName("canvas"));
+            new Renderer(document.getElementById("canvas"));
 
         </script>
         <script>
@@ -37,7 +44,8 @@
             // Draw a simple cube
             new Shapes.Cube({
                 size: new Vec3(150, 150, 150),
-                position: new Vec3(200, 200, 0)
+                position: new Vec3(200, 200, 0),
+                orientation: new Vec3(10, 30, 5)
             });
 
         </script>
@@ -46,7 +54,7 @@
             // Draw a rotating cube
             const rotatingCube = new Shapes.Cube({
                 size: new Vec3(150, 150, 150),
-                position: new Vec3(400, 200, 0)
+                position: new Vec3(500, 200, 0)
             });
 
             setInterval(() => {
@@ -66,7 +74,10 @@
                 position: new Vec3(document.documentElement.clientWidth / 2, document.documentElement.clientHeight / 2, 0)
             });
 
-            let mouseIsDown = false;
+            let
+                mouseIsDown = false,
+                lastX = 0,
+                lastY = 0;
 
             document.addEventListener("mousedown", () => {
                 mouseIsDown = true;
@@ -82,11 +93,11 @@
                     const deltaX = offsetX - lastX;
                     const deltaY = offsetY - lastY;
 
-                    interactableCube.setOrientation = new Vec3(
+                    interactableCube.setOrientation(new Vec3(
                         interactableCube.orientation.x + (deltaY / 2),
                         interactableCube.orientation.y - (deltaX / 2),
                         interactableCube.orientation.z
-                    );
+                    ));
 
                     lastX = offsetX;
                     lastY = offsetY;

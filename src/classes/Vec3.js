@@ -1,7 +1,14 @@
 /**
+ * @typedef Vec3
+ * @property {Number} x
+ * @property {Number} y
+ * @property {Number} z
+ */
+
+/**
  * Describes a 3D vector
  */
-class Vec3 {
+export default class Vec3 {
 
     x;
     y;
@@ -19,7 +26,3 @@ class Vec3 {
     }
 
 }
-
-export {
-    Vec3
-};
