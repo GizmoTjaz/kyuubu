@@ -1,5 +1,5 @@
 # Kyūbu
-A 3D cube renderer written in vanilla JS using the HTML canvas.
+A 3D shape renderer written in vanilla JS using the HTML canvas.
 ~~All classes include an "acceptable" amount of JSDoc documentation.~~
 
 ## Getting Started
