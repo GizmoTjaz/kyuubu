@@ -5,7 +5,7 @@ A 3D shape renderer written in vanilla JS using the HTML canvas.
 ## Getting Started
 First, you must import the script into your HTML document:
 ```html
-<script src="">
+<script src="https://www.gizmo.moe/scripts/kyuubu.bundle.js">
 ```
 Then you can use the following classes:
 ```js
