@@ -30,12 +30,26 @@ new Shapes.Cube({
 Describes a basic three-dimensional vector.
 ```js
 class Vec3 {
-    x: number,
-    y: number,
+    x: number
+    y: number
     z: number
 }
 
 new Vec3(0, 0, 0);
+```
+
+## Renderer
+The renderer class is responsible for drawing shapes onto the canvas. Objects are pushed to its `renderQueue` array when created. There must only be **one instance** of it per window.
+```js
+class Renderer {
+    canvas: HTMLCanvasElement
+    renderFrame: Function
+    pushToQueue: Function
+    updateObject: Function
+    destroyObject: Function
+}
+
+new Renderer(document.getElementById("canvas"));
 ```
 
 
