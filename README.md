@@ -1,5 +1,6 @@
 # Kyūbu
-A 3D cube renderer written in vanilla JS using the HTML canvas. All classes include an "acceptable" amount of JSDoc documentation.
+A 3D cube renderer written in vanilla JS using the HTML canvas.
+~~All classes include an "acceptable" amount of JSDoc documentation.~~
 
 ## Getting Started
 First, you must import the script into your HTML document:
@@ -20,7 +21,7 @@ new Shapes.Cube({
     size: new Vec3(50, 50, 50)
 });
 ```
-**For examples, please take a look at the [examples](https://github.com/GizmoTjaz/kyuubu/examples) folder.**
+**For examples, please take a look at the [examples](https://github.com/GizmoTjaz/kyuubu/tree/master/examples) folder.**
 
 # Classes
 
