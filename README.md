@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/GizmoTjaz/kyuubu/blob/master/logo/logo.png"></p>
+<p align="center"><img src="https://github.com/GizmoTjaz/kyuubu/blob/master/logo/Logo.png" width="160"></p>
 <h1 align="center">Kyūbu</h1>
 
 A 3D shape renderer written in TypeScript using the HTML canvas.
