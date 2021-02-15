@@ -50,7 +50,10 @@
             // Draw a rotating cube
             const rotatingCube = new Shapes.Cube({
                 size: new Vec3(150, 150, 150),
-                position: new Vec3(500, 200, 0)
+                position: new Vec3(500, 200, 0),
+                options: {
+                    drawVertices: true
+                }
             });
 
             setInterval(() => {
@@ -67,7 +70,11 @@
             // Draw an interactable cube
             const interactableCube = new Shapes.Cube({
                 size: new Vec3(300, 300, 300),
-                position: new Vec3(document.documentElement.clientWidth / 2, document.documentElement.clientHeight / 2, 0)
+                position: new Vec3(document.documentElement.clientWidth / 2, document.documentElement.clientHeight / 2, 0),
+                options: {
+                    drawVertices: false,
+                    drawEdges: true
+                }
             });
 
             let
