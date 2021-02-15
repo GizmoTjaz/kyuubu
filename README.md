@@ -13,7 +13,7 @@ const { Renderer, Vec3, Shapes } = Kyuubu;
 ```
 Before you start drawing, you must initialize a renderer object.
 ```js
-new Renderer(document.getElementByTagName("canvas"));
+new Renderer(document.getElementById("canvas"));
 ```
 After that, you can start drawing shapes.
 ```js
