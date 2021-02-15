@@ -2,7 +2,6 @@
 <h1 align="center">Kyūbu</h1>
 
 A 3D shape renderer written in TypeScript using the HTML canvas.
-~~All classes include an "acceptable" amount of JSDoc documentation.~~
 <br></br>
 
 # Getting Started
