@@ -1,7 +1,8 @@
 <p align="center"><img src="https://github.com/GizmoTjaz/kyuubu/blob/master/logo/Logo.png" width="160"></p>
 <h1 align="center">Kyūbu</h1>
 
-A 3D shape renderer written in TypeScript using the HTML canvas.
+A 3D shape renderer written in TypeScript using the HTML canvas.  
+Live example: [Click here](https:///www.gizmo.moe/kyuubu_example.html)
 <br></br>
 
 # Getting Started
@@ -86,7 +87,7 @@ ShapeConstructorInstructions = {
 ```
 
 ### Primitive
-The primitive class contains properties and methods all other shapes inherit. It is not supposed to be used on its own.
+The primitive class contains properties and methods all other shapes inherit. It is **not** supposed to be used on its own.
 ```js
 new Primitive(constructorInstructions);
 ```
