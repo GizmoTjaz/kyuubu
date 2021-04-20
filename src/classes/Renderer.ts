@@ -10,10 +10,13 @@ export default class Renderer {
     readonly ctx: any; // Because CanvasRenderingContext2D can sometimes be null for some fucking reason
     readonly renderQueue: Shape[] = [];
 
+	width: number = 0;
+	height: number = 0;
+
     constructor (canvas: HTMLCanvasElement) {
 
         if (!(canvas instanceof HTMLCanvasElement)) {
-            throw Error("Please provide a valid canvas element to the Renderer constructor");
+            throw new Error("Please provide a valid canvas element to the Renderer constructor");
         }
 
         this.canvas = canvas;
@@ -23,6 +26,9 @@ export default class Renderer {
         this.ctx.strokeStyle = "#FFF";
         this.ctx.lineWidth = canvas.width / 100;
         this.ctx.lineCap = "round";
+
+		this.width = canvas.clientWidth;
+		this.height = canvas.clientHeight;
 
         window.KyuubuRenderer = this;
 
@@ -37,6 +43,9 @@ export default class Renderer {
             ctx,
             renderQueue
         } = this;
+
+		this.width = canvas.clientWidth;
+		this.height = canvas.clientHeight;
 
         // Clear frame
         ctx.fillStyle = "#000";
