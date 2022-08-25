@@ -7,7 +7,7 @@ import { Shape } from "../index.d";
 export default class Renderer {
 
     readonly canvas: HTMLCanvasElement;
-    readonly ctx: any; // Because CanvasRenderingContext2D can sometimes be null for some fucking reason
+    readonly ctx: CanvasRenderingContext2D; // Because CanvasRenderingContext2D can sometimes be null for some fucking reason
     readonly renderQueue: Shape[] = [];
 
 	width: number = 0;
@@ -20,7 +20,14 @@ export default class Renderer {
         }
 
         this.canvas = canvas;
-        this.ctx = canvas.getContext("2d");
+
+		const _ctx = canvas.getContext("2d");
+
+		if (!_ctx) {
+			throw new Error("Failed to get CanvasRenderingContext2D");
+		}
+
+        this.ctx = _ctx;
 
         this.ctx.fillStyle = "#000";
         this.ctx.strokeStyle = "#FFF";
